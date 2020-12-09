@@ -1,0 +1,26 @@
+<!--pages/analyzeImg/analyzeImg.wxml-->
+<view class="container">
+
+  <view class="bg-container">
+
+    <view class="content">
+        <image class="wave" src="../../images/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image>
+    </view>
+
+  </view>
+
+  <view id="result-card">
+    <image id="target" src="{{targetImgPath}}"></image>
+    <image id="example" src="{{exampleImgPath}}"></image>
+    <view id="result">{{analyzeRes}}</view>
+    <view class="separate-line"></view>
+    <view id="relable" bindtap="relable">识别有误？帮忙反馈一下吧~</view>
+  </view>
+
+  <view class="content-container">
+    
+  </view>
+
+</view>
+

@@ -1,0 +1,15 @@
+<!--pages/signIn/signIn.wxml-->
+<view id="container">
+  <view id="welcomeTxt">欢迎使用珞珈百景图</view>
+  <button 
+  id="signInBtn" 
+  type="primary" 
+  open-type="getUserInfo"
+  bindgetuserinfo="log"
+  >
+    <image id="wechatIcon" src="../../icons/wechat.png"></image>
+    <view>微信用户快速登录</view>
+  </button>
+  
+</view>
+

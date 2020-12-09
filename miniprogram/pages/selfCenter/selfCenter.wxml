@@ -1,0 +1,103 @@
+<!--pages/selfCenter/selfCenter.wxml-->
+<view id="container">
+  <view id="flex-item1">
+
+    <view class="userinfo">
+      <image 
+      class="userinfo-avatar"
+      src="{{avatarUrl}}"
+      ></image>
+
+      <view class="userinfo-nickname">
+        欢迎您，{{nickName}}
+      </view>
+    </view>
+
+    <view 
+    id="collections"
+    class="menu-item" 
+    style="margin-top:10px;background-color:{{collectionsBgColor}}" bindtouchstart="touchStartFeedback"
+    bindtouchend="touchEndFeedback"
+    >
+      <image src="../../icons/collections2.png"></image>
+      <view>我的收藏馆</view>
+      <image src="../../icons/arrow.png" class="arrow-icon"></image>
+    </view>
+
+    <view class="separateline"></view>
+
+    <view 
+    id="history"
+    class="menu-item" 
+    style="background-color:{{historyBgColor}};border-bottom-left-radius:10px;border-bottom-right-radius:10px;" 
+    bindtouchstart="touchStartFeedback"
+    bindtouchend="touchEndFeedback"
+    >
+      <image src="../../icons/history.png"></image>
+      <view>我的识图记录</view>
+      <image src="../../icons/arrow.png" class="arrow-icon"></image>
+    </view>
+
+  </view>
+
+  <view id="flex-item2">
+    <view 
+    id="service"
+    class="menu-item" 
+    style="background-color:{{serviceBgColor}};border-top-left-radius:10px;border-top-right-radius:10px;" 
+    bindtouchstart="touchStartFeedback"
+    bindtouchend="touchEndFeedback"
+    >
+    <button open-type="contact" style="position:absolute;"></button>
+      <image src="../../icons/message.png" style="z-index:999;"></image>
+      <view style="z-index:999;">联系客服</view>
+      <image src="../../icons/arrow.png" class="arrow-icon"></image>
+    </view>
+
+    <view class="separateline"></view>
+
+    <view 
+    id="feedback"
+    class="menu-item" 
+    style="background-color:{{feedbackBgColor}}" 
+    bindtouchstart="touchStartFeedback"
+    bindtouchend="touchEndFeedback"
+    >
+      <image src="../../icons/feedback.png"></image>
+      <view>意见反馈</view>
+      <image src="../../icons/arrow.png" class="arrow-icon"></image>
+    </view>
+
+    <view class="separateline"></view>
+
+    <view 
+    id="aboutUs"
+    class="menu-item" 
+    style="background-color:{{aboutUsBgColor}}" 
+    bindtouchstart="touchStartFeedback"
+    bindtouchend="touchEndFeedback"
+    >
+      <image src="../../icons/aboutUs.png"></image>
+      <view>关于我们</view>
+      <image src="../../icons/arrow.png" class="arrow-icon"></image>
+    </view>
+
+    <view class="separateline"></view>
+
+    <view 
+    id="settings"
+    class="menu-item" 
+    style="background-color:{{settingsBgColor}};border-bottom-left-radius:10px;border-bottom-right-radius:10px;" 
+    bindtouchstart="touchStartFeedback"
+    bindtouchend="touchEndFeedback"
+    >
+      <image src="../../icons/settings.png"></image>
+      <view>设置</view>
+      <image src="../../icons/arrow.png" class="arrow-icon"></image>
+    </view>
+
+  </view>
+
+  <view style="position:absolute;bottom:10%;">©Copyright2020 610车间荣誉出品</view>
+
+</view>

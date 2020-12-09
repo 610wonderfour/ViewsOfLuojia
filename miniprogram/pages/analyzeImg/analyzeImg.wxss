@@ -1,0 +1,111 @@
+/* pages/analyzeImg/analyzeImg.wxss */
+.container{
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+  background-color: #efefef;
+}
+
+.bg-container{
+  position: relative;
+  padding: 0;
+  height: 200rpx;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffc8c4;
+  z-index: 995;
+}
+
+.content{
+  position: absolute;
+  width: 100%;
+  top: 10rpx;
+}
+
+.wave {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  opacity: 0.725;
+  height: 260rpx;
+  width: 2250rpx;
+  animation: wave 10s linear infinite;
+}
+
+.wave-bg {
+  z-index: 1;
+  animation: wave-bg 10.25s linear infinite;
+}
+
+@keyframes wave {
+  from {
+    transform: translate3d(125rpx, 0, 0);
+  }
+
+  to {
+    transform: translate3d(1125rpx, 0, 0);
+  }
+}
+
+@keyframes wave-bg {
+  from {
+    transform: translate3d(375rpx, 0, 0);
+  }
+
+  to {
+    transform: translate3d(1375rpx, 0, 0);
+  }
+}
+
+#result-card{
+  position: absolute;
+  top: 39%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 90%;
+  height: 800rpx;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 1px #aaaaaa;
+  z-index: 996;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#target{
+  height: 450rpx;
+  width: 100%;
+}
+
+#example{
+  height: 250rpx;
+  width: 250rpx;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-top: -170rpx;
+  z-index: 997;
+}
+
+#result{
+  font-size: 40rpx;
+  font-weight: 600;
+  margin-top: 50rpx;
+}
+
+.separate-line{
+  width: 100%;
+  border: 0.4px solid #ebebeb;
+  margin-top: 70rpx;
+}
+
+#relable{
+  font-size: 27rpx;
+  font-weight: 530;
+  color: rgb(41, 146, 41);
+  margin-top: 30rpx;
+}

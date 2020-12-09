@@ -1,0 +1,58 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view id="map-container">
+    <map
+    class="map"
+    id="map"
+    latitude="{{location.latitude}}"
+    longitude="{{location.longtitude}}"
+    show-location
+    show-scale
+    scale="18"
+    >
+    <cover-view id="setPosition">
+      <cover-image 
+      style="height: 30px;width: 30px;" 
+      src="../../icons/setPosition.png" 
+      bindtap="moveTolocation">
+      </cover-image>
+    </cover-view>
+
+    <cover-view id="mainbar">
+
+      <cover-view 
+      id="collections"
+      style="height:60px;width:50px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;"
+      >
+        <cover-image 
+        id="collectionsIcon"
+        style="height:30px;width:30px;"
+        src="{{collectionsIcon}}"
+        bindtap="enterCollections"
+        >
+        </cover-image>
+        <cover-view style="font-size:12px;margin-top:-10px;letter-spacing:1px;">收藏馆</cover-view>
+      </cover-view>
+
+      <cover-view id="analyzeBtn" bindtap="analyzeImg">识图</cover-view>
+
+      <cover-view 
+      id="selfCenter" 
+      style="height:60px;width:60px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;"
+      >
+        <cover-image
+        id="selfCenterIcon"
+        style="height:30px;width:30px;"
+        src="{{selfCenterIcon}}"
+        bindtap="enterSelfCenter"
+        >
+        </cover-image>
+        <cover-view style="font-size:12px;margin-top:-10px;">个人中心</cover-view>
+      </cover-view>
+
+    </cover-view>
+    </map>
+  </view>
+
+</view>
