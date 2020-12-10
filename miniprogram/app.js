@@ -16,8 +16,8 @@ App({
     }
 
     this.globalData = {}
-    this.globalData.url = 'https://www.luojiabaijingtu.com:80/WxApp/'
-    this.globalData.imgUrl = 'https://www.luojiabaijingtu.com:80/'
+    this.globalData.url = 'http://106.52.12.54/WxApp/'
+    this.globalData.imgUrl = 'http://106.52.12.54/'
     this.globalData.sakuraColor = '#feeeed'
 
     try {

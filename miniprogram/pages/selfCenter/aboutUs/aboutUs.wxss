@@ -1,1 +1,79 @@
-/* pages/selfCenter/aboutUs/aboutUs.wxss */
+/* pages/selfCenter/history/history.wxss */
+#container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#background {
+  position: relative;
+  overflow: hidden;
+  width: 85%;
+  height: 370rpx;
+  margin-top: 70rpx;
+    
+}
+#background::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  bottom: -100%;
+  right: -100%;
+  background: linear-gradient(45deg,  #ffc700 0%, #e91e1e 50%, #6f27b0 100%);
+  background-size: 100% 100%;
+  animation: bgposition 60s infinite linear alternate;
+  z-index: -1;
+}
+
+
+@keyframes bgposition {
+  0% {
+      transform: translate(30%, 30%);
+  }
+  25% {
+      transform: translate(30%, -30%);
+  }
+  50% {
+      transform: translate(-30%, -30%);
+  }
+  75% {
+      transform: translate(-30%, 30%);
+  }
+  100% {
+      transform: translate(30%, 30%);
+  }
+}
+
+#des{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: white;
+  width: 35%;
+  padding-left: 30rpx;
+  padding-top: 80rpx;
+}
+
+#title{
+  font-size: 100rpx;
+  font-weight: 700;
+  text-shadow: -4rpx 4rpx 20rpx #5c5c5c;
+}
+
+#title-des{
+  text-align: end;
+  margin-top: 40rpx;
+}
+
+#wonder4{
+  position: absolute;
+  height: 260rpx;
+  width: 390rpx;
+  z-index: 1;
+  top: 2%;
+  right: 2%;
+  box-shadow: 0px 0px 5px 1px #757575;
+}

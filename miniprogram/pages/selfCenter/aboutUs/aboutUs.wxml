@@ -1,2 +1,25 @@
 <!--pages/selfCenter/aboutUs/aboutUs.wxml-->
-<text>pages/selfCenter/aboutUs/aboutUs.wxml</text>
+<view class="container">
+
+  <view id="background">
+    <view id="des">
+      <view id="title">610</view>
+      <view id="title-des">--四个有趣灵魂擦出的火花</view>
+    </view>
+
+  </view>
+  <image id="wonder4" src="../../../images/610wonderfour.jpg"></image>
+
+  <view style="width:60%;margin-top:50rpx;">
+    "珞珈百景图是课程大作业的衍生产物，是第一个产出自610车间的产品。"
+  </view>
+  <view>
+
+  </view>
+  <view>
+    
+  </view>
+  <view>
+    
+  </view>
+</view>

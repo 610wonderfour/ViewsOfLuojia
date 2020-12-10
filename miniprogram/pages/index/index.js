@@ -89,12 +89,12 @@ Page({
             if(res.statusCode === 200){
               var data = JSON.parse(res.data);
               wx.setStorageSync('analyzeRes', data.predict_ans);
-              
               wx.showToast({
                 title: "识别成功", // 提示的内容
                 icon: "success", // 图标，默认success
                 image: "", // 自定义图标的本地路径，image 的优先级高于 icon
                 mask: false, // 是否显示透明蒙层，防止触摸穿透
+                duration: 2500,
                 success: function(){
                   
                 }
@@ -109,7 +109,6 @@ Page({
               })
             }
             
-            console.log(wx.getStorageSync('analyzeRes'))
             //上传识别结果获取示例图片
             wx.request({
               url: app.globalData.url + 'returnTarget/',
@@ -129,7 +128,7 @@ Page({
                   wx.navigateTo({
                     url: '../analyzeImg/analyzeImg',
                   })
-                }, 1500) 
+                }, 2500) 
               },
               fail:function(res) {
                 console.log(res);
