@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+
   },
 
 
@@ -32,10 +32,6 @@ Page({
 
     wx.setStorageSync('logged', true)
     console.log(app.globalData)
-    
-
-
-    //向服务器发起请求获取用户登录态（传openid）
 
     wx.redirectTo({
       url: '../index/index',

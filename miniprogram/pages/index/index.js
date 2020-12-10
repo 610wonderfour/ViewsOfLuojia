@@ -1,6 +1,7 @@
 //index.js
 const app = getApp()
 const th = require('../../utils/th')
+const util = require('../../utils/util')
 
 Page({
   data: {
@@ -45,6 +46,42 @@ Page({
 
   },
 
+  initCollectionRecord: function(){
+    //向服务器发起请求获取用户登录态（传openid）
+    new Promise((resolve, reject) => {
+      wx.request({
+        url: app.globalData.url + 'UserStatus/',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          'open_id': wx.getStorageSync('openid'),
+        },
+        success: res => resolve(res),
+        fail: res => reject(res)
+      })
+    }).then(res => {
+      console.log('用户登录态:', res);
+      wx.setStorageSync('collectionStatus', res.data.UserCollections.join());
+      app.globalData.collected = util.checkCollectionStatus(
+        wx.getStorageSync('collectionStatus'),
+        wx.getStorageSync('analyzeRes')
+      )
+      
+    }).catch(res => {
+      console.log(res);
+      wx.showToast({
+        title: '拉取信息失败',
+        icon: 'none'
+      })
+    })
+    
+
+
+    
+  },
+
   analyzeImg: function(){
     if(this.checkIfSign()){
       this.choosePic();
@@ -75,14 +112,13 @@ Page({
      })
     }).then(res => {
       console.log(res);
+      wx.showLoading({
+        title: '小图努力中...'
+      });
+      var tempFilePath = res.tempFilePaths[0];
+      wx.setStorageSync('targetImgPath', tempFilePath);
+
       return new Promise((resolve, reject) => {
-        wx.showLoading({
-          title: '小图努力中...'
-        });
-        var tempFilePath = res.tempFilePaths[0];
-        wx.setStorageSync('targetImgPath', tempFilePath);
-        console.log(tempFilePath);
-  
         wx.uploadFile({
           url: app.globalData.url + 'WxAppPredict/',
           filePath: tempFilePath,
@@ -95,7 +131,8 @@ Page({
         })
      })
     }).then(res => {
-      console.log(res);
+      console.log('识别结果:', res);
+
       return new Promise((resolve, reject) => {
         if(res.statusCode === 200){
           var data = JSON.parse(res.data);
@@ -118,10 +155,9 @@ Page({
             image: ''
           })
         }
-  
      })
     }).then(res => {
-      console.log(res);
+      this.initCollectionRecord();
       return new Promise((resolve, reject) => {
         wx.request({
           url: app.globalData.url + 'returnTarget/',
@@ -138,6 +174,7 @@ Page({
       })
     }).then(res => {
       console.log(res);
+      
       return new Promise((resolve, reject) => {
         var url = app.globalData.imgUrl + 'uploaded/images/' + th.typeHash(wx.getStorageSync('analyzeRes')) + '/' + res.data.target_file
         wx.setStorageSync('exampleImgPath', url);
@@ -149,7 +186,6 @@ Page({
         }, 1500) 
       })
     }).catch(res => {
-      console.log(res.errMsg);
       wx.showToast({
         title: '小图出错了..',
         icon: 'none'
@@ -278,6 +314,8 @@ Page({
         this.moveTolocation();
       }
     });
+
+    this.initCollectionRecord();
 
 
 
