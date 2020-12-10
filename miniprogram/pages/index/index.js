@@ -54,6 +54,7 @@ Page({
 
   //用户选择拍照或相册中图片上传
   choosePic: function(options) {
+
     /*
     *调试阶段代码（最终须注释）
     */
@@ -62,21 +63,26 @@ Page({
     // })
 
     /*
-    *正式阶段代码
+    *正式阶段Promise改写代码
     */
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: function(res) {
-        console.log(res);
+    new Promise((resolve, reject) => {
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
+        success: res => resolve(res),
+        fail: res => reject(res)
+     })
+    }).then(res => {
+      console.log(res);
+      return new Promise((resolve, reject) => {
         wx.showLoading({
           title: '小图努力中...'
         });
         var tempFilePath = res.tempFilePaths[0];
         wx.setStorageSync('targetImgPath', tempFilePath);
         console.log(tempFilePath);
-        //上传图片进行识别
+  
         wx.uploadFile({
           url: app.globalData.url + 'WxAppPredict/',
           filePath: tempFilePath,
@@ -84,77 +90,168 @@ Page({
           formData: {
             'openId': wx.getStorageSync('openid')
           },
-          success: function(res) {
-            console.log(res);
-            if(res.statusCode === 200){
-              var data = JSON.parse(res.data);
-              wx.setStorageSync('analyzeRes', data.predict_ans);
-              wx.showToast({
-                title: "识别成功", // 提示的内容
-                icon: "success", // 图标，默认success
-                image: "", // 自定义图标的本地路径，image 的优先级高于 icon
-                mask: false, // 是否显示透明蒙层，防止触摸穿透
-                duration: 2500,
-                success: function(){
-                  
-                }
-              })
-              
-            }
-            else{
-              wx.showToast({
-                title: '服务器开小差了噢~',
-                icon: 'none',
-                image: ''
-              })
-            }
-            
-            //上传识别结果获取示例图片
-            wx.request({
-              url: app.globalData.url + 'returnTarget/',
-              method: 'POST',
-              header: {
-                'content-type': 'application/x-www-form-urlencoded'
-              },
-              data: {
-                'predict_ans': th.typeHash(wx.getStorageSync('analyzeRes'))
-              },
-              success:function(res) {
-                console.log(res);
-                var url = app.globalData.imgUrl + 'uploaded/images/' + th.typeHash(wx.getStorageSync('analyzeRes')) + '/' + res.data.target_file
-                wx.setStorageSync('exampleImgPath', url);
-                
-                setTimeout(()=>{
-                  wx.navigateTo({
-                    url: '../analyzeImg/analyzeImg',
-                  })
-                }, 2500) 
-              },
-              fail:function(res) {
-                console.log(res);
-                wx.showToast({
-                  title: '获取示例图片失败~',
-                  icon: 'none'
-                })
-              }
-
-            })
-
-
-          },
-          complete: function(){
-            wx.hideLoading();
-          }
-
+          success: res => resolve(res),
+          fail: res => reject(res)
         })
+     })
+    }).then(res => {
+      console.log(res);
+      return new Promise((resolve, reject) => {
+        if(res.statusCode === 200){
+          var data = JSON.parse(res.data);
+          wx.setStorageSync('analyzeRes', data.predict_ans);
+          wx.showToast({
+            title: "识别成功", // 提示的内容
+            icon: "success", // 图标，默认success
+            image: "", // 自定义图标的本地路径，image 的优先级高于 icon
+            mask: false, // 是否显示透明蒙层，防止触摸穿透
+            duration: 2500,
+            success: res => resolve(res),
+            fail: res => reject(res)
+          })
+          
+        }
+        else{
+          wx.showToast({
+            title: '服务器开小差了噢~',
+            icon: 'none',
+            image: ''
+          })
+        }
+  
+     })
+    }).then(res => {
+      console.log(res);
+      return new Promise((resolve, reject) => {
+        wx.request({
+          url: app.globalData.url + 'returnTarget/',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          data: {
+            'predict_ans': th.typeHash(wx.getStorageSync('analyzeRes'))
+          },
+          success: res => resolve(res),
+          fail: res => reject(res)
+        })
+      })
+    }).then(res => {
+      console.log(res);
+      return new Promise((resolve, reject) => {
+        var url = app.globalData.imgUrl + 'uploaded/images/' + th.typeHash(wx.getStorageSync('analyzeRes')) + '/' + res.data.target_file
+        wx.setStorageSync('exampleImgPath', url);
+        
+        setTimeout(()=>{
+          wx.navigateTo({
+            url: '../analyzeImg/analyzeImg',
+          })
+        }, 1500) 
+      })
+    }).catch(res => {
+      console.log(res.errMsg);
+      wx.showToast({
+        title: '小图出错了..',
+        icon: 'none'
+      })
+    }).finally(() => wx.hideLoading())
+
+
+
+    /*
+    *正式阶段嵌套回调函数代码
+    */
+    // wx.chooseImage({
+    //   count: 1,
+    //   sizeType: ['original', 'compressed'],
+    //   sourceType: ['album', 'camera'],
+    //   success: function(res) {
+    //     console.log(res);
+    //     wx.showLoading({
+    //       title: '小图努力中...'
+    //     });
+    //     var tempFilePath = res.tempFilePaths[0];
+    //     wx.setStorageSync('targetImgPath', tempFilePath);
+    //     console.log(tempFilePath);
+    //     //上传图片进行识别
+    //     wx.uploadFile({
+    //       url: app.globalData.url + 'WxAppPredict/',
+    //       filePath: tempFilePath,
+    //       name: 'file',
+    //       formData: {
+    //         'openId': wx.getStorageSync('openid')
+    //       },
+    //       success: function(res) {
+    //         console.log(res);
+    //         if(res.statusCode === 200){
+    //           var data = JSON.parse(res.data);
+    //           wx.setStorageSync('analyzeRes', data.predict_ans);
+    //           wx.showToast({
+    //             title: "识别成功", // 提示的内容
+    //             icon: "success", // 图标，默认success
+    //             image: "", // 自定义图标的本地路径，image 的优先级高于 icon
+    //             mask: false, // 是否显示透明蒙层，防止触摸穿透
+    //             duration: 2500,
+    //             success: function(){
+                  
+    //             }
+    //           })
+              
+    //         }
+    //         else{
+    //           wx.showToast({
+    //             title: '服务器开小差了噢~',
+    //             icon: 'none',
+    //             image: ''
+    //           })
+    //         }
+            
+    //         //上传识别结果获取示例图片
+    //         wx.request({
+    //           url: app.globalData.url + 'returnTarget/',
+    //           method: 'POST',
+    //           header: {
+    //             'content-type': 'application/x-www-form-urlencoded'
+    //           },
+    //           data: {
+    //             'predict_ans': th.typeHash(wx.getStorageSync('analyzeRes'))
+    //           },
+    //           success:function(res) {
+    //             console.log(res);
+    //             var url = app.globalData.imgUrl + 'uploaded/images/' + th.typeHash(wx.getStorageSync('analyzeRes')) + '/' + res.data.target_file
+    //             wx.setStorageSync('exampleImgPath', url);
+                
+    //             setTimeout(()=>{
+    //               wx.navigateTo({
+    //                 url: '../analyzeImg/analyzeImg',
+    //               })
+    //             }, 2500) 
+    //           },
+    //           fail:function(res) {
+    //             console.log(res);
+    //             wx.showToast({
+    //               title: '获取示例图片失败~',
+    //               icon: 'none'
+    //             })
+    //           }
+
+    //         })
+
+
+    //       },
+    //       complete: function(){
+    //         wx.hideLoading();
+    //       }
+
+    //     })
 
         
 
-      },
-      fail: function(res) {
-        console.log(res.errMsg);
-      }
-    })
+    //   },
+    //   fail: function(res) {
+    //     console.log(res.errMsg);
+    //   }
+    // })
   },
 
   onLoad: function() {

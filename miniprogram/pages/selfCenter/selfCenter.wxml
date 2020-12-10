@@ -44,27 +44,27 @@
     <view 
     id="service"
     class="menu-item" 
-    style="background-color:{{serviceBgColor}};border-top-left-radius:10px;border-top-right-radius:10px;" 
+    style="background-color:{{feedbackBgColor}};border-top-left-radius:10px;border-top-right-radius:10px;" 
     bindtouchstart="touchStartFeedback"
     bindtouchend="touchEndFeedback"
     >
     <button open-type="contact" style="position:absolute;"></button>
-      <image src="../../icons/message.png" style="z-index:999;"></image>
-      <view style="z-index:999;">联系客服</view>
+      <image src="../../icons/feedback.png" style="z-index:999;"></image>
+      <view style="z-index:999;">意见反馈</view>
       <image src="../../icons/arrow.png" class="arrow-icon"></image>
     </view>
 
     <view class="separateline"></view>
 
     <view 
-    id="feedback"
+    id="chatroom"
     class="menu-item" 
-    style="background-color:{{feedbackBgColor}}" 
+    style="background-color:{{chatroomBgColor}}" 
     bindtouchstart="touchStartFeedback"
     bindtouchend="touchEndFeedback"
     >
-      <image src="../../icons/feedback.png"></image>
-      <view>意见反馈</view>
+      <image src="../../icons/message.png"></image>
+      <view>小图聊天室</view>
       <image src="../../icons/arrow.png" class="arrow-icon"></image>
     </view>
 

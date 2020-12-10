@@ -11,9 +11,24 @@
   </view>
 
   <view id="result-card">
-    <image id="target" src="{{targetImgPath}}"></image>
-    <image id="example" src="{{exampleImgPath}}"></image>
-    <view id="result">{{analyzeRes}}</view>
+    <image id="target" src="{{targetImgPath}}" mode="aspectFill"></image>
+    <image id="example" src="{{exampleImgPath}}" mode="aspectFill"></image>
+    <view style="position:relative;margin-top: 50rpx;width:300rpx;text-align:center;">
+      <view id="result">{{analyzeRes}}</view>
+      <image 
+      wx:if="{{!collected}}"
+      class="collect"
+      src="../../icons/collect.png" 
+      style="{{collectStyle}}"
+      bindtap="collectTap" 
+      ></image>
+      <image
+      wx:if="{{collected}}"
+      class="collect"
+      src="../../icons/collected.png"
+      style=""
+      bindtap="uncollectTap"></image>
+    </view>
     <view class="separate-line"></view>
     <view id="relable" bindtap="relable">识别有误？帮忙反馈一下吧~</view>
   </view>

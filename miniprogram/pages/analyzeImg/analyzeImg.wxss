@@ -65,7 +65,7 @@
   left: 50%;
   transform: translate(-50%,-50%);
   width: 90%;
-  height: 800rpx;
+  height: 820rpx;
   border-radius: 5px;
   box-shadow: 0px 0px 4px 1px #aaaaaa;
   z-index: 996;
@@ -83,8 +83,8 @@
 }
 
 #example{
-  height: 250rpx;
-  width: 250rpx;
+  height: 300rpx;
+  width: 300rpx;
   border-radius: 5px;
   border: 1px solid white;
   margin-top: -170rpx;
@@ -94,13 +94,45 @@
 #result{
   font-size: 40rpx;
   font-weight: 600;
-  margin-top: 50rpx;
+}
+
+.collect{
+  position: absolute;
+  right: 0rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.collected{
+  position: absolute;
+  right: 0rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40rpx;
+  width: 40rpx;
+}
+
+@keyframes collecting {
+  0%{
+    background-color: white;
+    transform: translateY(-50%) scale(1);
+  } 
+  50%{
+    background-color: yellow;
+    transform: translateY(-50%) scale(2);
+  } 
+  100%{
+    background-color: white;
+    transform: translateY(-50%) scale(1);
+  }
 }
 
 .separate-line{
   width: 100%;
   border: 0.4px solid #ebebeb;
-  margin-top: 70rpx;
+  margin-top: 40rpx;
 }
 
 #relable{
@@ -109,3 +141,4 @@
   color: rgb(41, 146, 41);
   margin-top: 30rpx;
 }
+

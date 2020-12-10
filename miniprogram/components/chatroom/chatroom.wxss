@@ -107,8 +107,9 @@
 }
 
 .body .message .image-content {
-  max-width: 240rpx;
+  max-width: 360rpx;
   max-height: 240rpx;
+  border-radius: 10rpx;
 }
 
 .body .message.message__self .image-wrapper .loading {

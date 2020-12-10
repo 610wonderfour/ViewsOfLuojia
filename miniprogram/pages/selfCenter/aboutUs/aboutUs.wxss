@@ -24,7 +24,8 @@
   right: -100%;
   background: linear-gradient(45deg,  #ffc700 0%, #e91e1e 50%, #6f27b0 100%);
   background-size: 100% 100%;
-  animation: bgposition 60s infinite linear alternate;
+  animation: bgposition 30s infinite linear alternate;
+  -webkit-animation: bgposition 30s infinite linear alternate;
   z-index: -1;
 }
 

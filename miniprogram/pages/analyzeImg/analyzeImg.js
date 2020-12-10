@@ -2,6 +2,10 @@
 const app = getApp()
 const as = require('../../utils/as')
 const th = require('../../utils/th')
+const util = require('../../utils/util')
+const collecting_animation = 'animation: collecting 1s 1 linear;'
+const colleted_style = 'background-color:yellow;'
+const uncollected_style = 'background-color:white;'
 
 Page({
 
@@ -9,12 +13,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    targetImgPath: '',
-    exampleImgPath: '',
-    analyzeRes: '',
-    trueLabel: 0, //标签类别
+    targetImgPath: String,
+    exampleImgPath: String,
+    analyzeRes: String,
+    trueLabel: Number, //标签类别
+    collectStyle: String,
+    collected: Boolean, //当前区域是否被收藏
     
 
+  },
+
+  
+
+  collectTap: function(event){
+    this.setData({
+      collectStyle: collecting_animation
+    })
   },
 
   relable: function() {
@@ -92,6 +106,83 @@ Page({
     
   },
 
+  collectTap: function() {
+    new Promise((resolve, reject) => {
+      wx.request({
+        url: app.globalData.url + 'AddCollection/',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+        },
+        data: {
+          'open_id': wx.getStorageSync('openid'),
+          'area_code': th.typeHash(wx.getStorageSync('analyzeRes'))
+        },
+        success: res => resolve(res),
+        fail: res => resolve(res)
+      })
+    }).then(res => {
+      console.log('添加收藏', res);
+
+      return new Promise((resolve, reject) => {
+        this.setData({
+          collected: true
+        })
+        wx.showToast({
+          title: '小图收藏好啦~',
+          icon: 'success',
+          duration: 1500,
+        })
+      })
+    }).catch(res => {
+      console.log(res);
+      wx.showToast({
+        title: '添加收藏失败',
+        icon: 'none'
+      })
+    })
+  },
+
+  uncollectTap: function() {
+    new Promise((resolve, reject) => {
+      console.log(wx.getStorageSync('openid'));
+      console.log(th.typeHash(wx.getStorageSync('analyzeRes')));
+      wx.request({
+        url: app.globalData.url + 'RemoveCollection/',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+        },
+        data: {
+          'open_id': wx.getStorageSync('openid'),
+          'area_code': th.typeHash(wx.getStorageSync('analyzeRes'))
+        },
+        success: res => resolve(res),
+        fail: res => resolve(res)
+      })
+    }).then(res => {
+      console.log('取消收藏', res);
+      return new Promise((resolve, reject) => {
+        this.setData({
+          collected: false
+        })
+        wx.showToast({
+          title: '不爱了么..',
+          icon: '',
+          duration: 1500,
+          image: '../../images/dogCry.PNG'
+        })
+      })
+    }).catch(res => {
+      console.log(res);
+      wx.showToast({
+        title: '取消收藏失败',
+        icon: 'none'
+      })
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -100,8 +191,12 @@ Page({
       targetImgPath: wx.getStorageSync('targetImgPath'),
       //调试阶段用，后续须改成exampleImgPath
       exampleImgPath: wx.getStorageSync('exampleImgPath'),
-      analyzeRes: wx.getStorageSync('analyzeRes')
+      analyzeRes: wx.getStorageSync('analyzeRes'),
+      collected: app.globalData.collected
     })
+
+
+
   },
 
   /**

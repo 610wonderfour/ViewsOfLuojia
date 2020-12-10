@@ -10,6 +10,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
+
   log: function(e) {
     if(e.detail.userInfo){
       wx.setStorageSync('userInfo', e.detail.userInfo)

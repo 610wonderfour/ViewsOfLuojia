@@ -10,14 +10,14 @@ Page({
     nickName: '',
     collectionsBgColor: 'white',
     historyBgColor: 'white',
-    serviceBgColor: 'white',
     feedbackBgColor: 'white',
+    chatroomBgColor: 'white',
     aboutUsBgColor: 'white',
     settingsBgColor: 'white'
   },
 
   touchStartFeedback: function(event){
-    console.log(event)
+    // console.log(event)
     switch (event.target.id) {
       case 'collections':
         this.setData({collectionsBgColor: '#dadada'});
@@ -25,11 +25,11 @@ Page({
       case 'history':
         this.setData({historyBgColor: '#dadada'});
         break;
-      case 'service':
-        this.setData({serviceBgColor: '#dadada'});
-        break;
       case 'feedback':
         this.setData({feedbackBgColor: '#dadada'});
+        break;
+      case 'chatroom':
+        this.setData({chatroomBgColor: '#dadada'});
         break;
       case 'aboutUs':
         this.setData({aboutUsBgColor: '#dadada'});
@@ -43,7 +43,7 @@ Page({
   },
 
   touchEndFeedback: function(event){
-    console.log(event)
+    // console.log(event)
     switch (event.currentTarget.id) {
       case 'collections':
         this.setData({collectionsBgColor: 'white'});
@@ -57,13 +57,13 @@ Page({
           url: 'history/history',
         })
         break;
-      case 'service':
-        this.setData({serviceBgColor: 'white'});
-        break;
       case 'feedback':
         this.setData({feedbackBgColor: 'white'});
+        break;
+      case 'chatroom':
+        this.setData({chatroomBgColor: 'white'});
         wx.navigateTo({
-          url: 'feedback/feedback',
+          url: 'chatroom/chatroom',
         })
         break;
       case 'aboutUs':
