@@ -102,7 +102,7 @@ Page({
     /*
     *正式阶段Promise改写代码
     */
-    new Promise((resolve, reject) => {
+     new Promise((resolve, reject) => {
       wx.chooseImage({
         count: 1,
         sizeType: ['original', 'compressed'],
@@ -316,9 +316,6 @@ Page({
     });
 
     this.initCollectionRecord();
-
-
-
 
   },
 

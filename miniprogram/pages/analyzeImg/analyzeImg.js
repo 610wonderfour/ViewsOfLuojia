@@ -168,9 +168,9 @@ Page({
         })
         wx.showToast({
           title: '不爱了么..',
-          icon: '',
+          icon: 'none',
           duration: 1500,
-          image: '../../images/dogCry.PNG'
+          image: '../../images/dogCry.png'
         })
       })
     }).catch(res => {
