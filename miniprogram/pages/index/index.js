@@ -173,11 +173,21 @@ Page({
         })
       })
     }).then(res => {
-      console.log(res);
+      console.log('返回示例和精选图片', res);
       
       return new Promise((resolve, reject) => {
-        var url = app.globalData.imgUrl + 'uploaded/images/' + th.typeHash(wx.getStorageSync('analyzeRes')) + '/' + res.data.target_file
-        wx.setStorageSync('exampleImgPath', url);
+        var exampleUrl = app.globalData.imgUrl + 'example/target/' + th.typeHash(wx.getStorageSync('analyzeRes')) + '/' + res.data.target_file;
+        wx.setStorageSync('exampleImgPath', exampleUrl);
+
+        var arr = res.data.display_files;
+        app.picArray = [];
+        arr.forEach(item => {
+          app.picArray.push(
+            app.globalData.imgUrl + 'example/display/' + th.typeHash(wx.getStorageSync('analyzeRes')) + '/' + item
+          )
+        })
+        console.log('精选图片', app.picArray);
+      
         
         setTimeout(()=>{
           wx.navigateTo({
@@ -190,7 +200,7 @@ Page({
         title: '小图出错了..',
         icon: 'none'
       })
-    }).finally(() => wx.hideLoading())
+    }).then(() => wx.hideLoading())
 
 
 
@@ -311,7 +321,7 @@ Page({
             longitude
           }
         });
-        this.moveTolocation();
+        
       }
     });
 
@@ -324,6 +334,8 @@ Page({
       collectionsIcon: '../../icons/collections.png',
       selfCenterIcon: '../../icons/self_center.png'
     })
+
+    this.moveTolocation();
   },
 
   moveTolocation: function() {

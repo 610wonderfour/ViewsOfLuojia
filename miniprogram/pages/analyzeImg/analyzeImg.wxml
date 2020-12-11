@@ -1,12 +1,11 @@
 <!--pages/analyzeImg/analyzeImg.wxml-->
-<view class="container">
+<view class="content">
+    <image class="wave" src="../../images/wave.png" mode="aspectFill"></image>
+    <image class="wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image>
+</view>
+<view class="container" style="">
 
   <view class="bg-container">
-
-    <view class="content">
-        <image class="wave" src="../../images/wave.png" mode="aspectFill"></image>
-        <image class="wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image>
-    </view>
 
   </view>
 
@@ -31,6 +30,25 @@
     </view>
     <view class="separate-line"></view>
     <view id="relable" bindtap="relable">识别有误？帮忙反馈一下吧~</view>
+  </view>
+
+  <view style="margin-top: 80rpx;font-size:50rpx;">👇 👇 👇</view>
+
+  <view id="slide-title">
+    <image src="../../icons/arrow_left.png" style="height:35rpx;width:35rpx;"></image>
+    <image src="../../icons/camera3.png" style="height:50rpx;width:50rpx;"></image>
+    <view style="font-size:28rpx;font-weight:400;letter-spacing:2rpx;margin:-3rpx 5rpx 0 13rpx;">
+      {{briefName}}的光与影
+    </view>
+    <image src="../../icons/arrow_right.png" style="height:35rpx;width:35rpx;"></image>
+  </view>
+
+  <view id="slide-show">
+      <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" circular="true">
+          <swiper-item bindtap="" wx:for="{{picArray}}" wx:key="index">
+              <image mode="" src="{{item}}"></image>
+          </swiper-item>
+      </swiper>
   </view>
 
   <view class="content-container">

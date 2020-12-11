@@ -19,6 +19,10 @@ Page({
     trueLabel: Number, //标签类别
     collectStyle: String,
     collected: Boolean, //当前区域是否被收藏
+    picArray: Array, //当前区域轮播图资源
+    briefName: String,
+    windowWidth: Number
+
     
 
   },
@@ -167,7 +171,7 @@ Page({
           collected: false
         })
         wx.showToast({
-          title: '不爱了么..',
+          title: '不爱了么...',
           icon: 'none',
           duration: 1500,
           image: '../../images/dogCry.png'
@@ -192,9 +196,12 @@ Page({
       //调试阶段用，后续须改成exampleImgPath
       exampleImgPath: wx.getStorageSync('exampleImgPath'),
       analyzeRes: wx.getStorageSync('analyzeRes'),
-      collected: app.globalData.collected
-    })
+      collected: app.globalData.collected,
+      picArray: app.picArray,
+      briefName: util.getBriefName(wx.getStorageSync('analyzeRes')),
+      windowWidth: app.globalData.windowWidth,
 
+    })
 
 
   },
