@@ -2,7 +2,7 @@
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -27,16 +27,18 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
   "appid": "wx3f6e751444040212",
   "projectname": "Views_Of_Luojia",
-  "libVersion": "2.8.3",
+  "libVersion": "2.10.4",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "compileType": "miniprogram",

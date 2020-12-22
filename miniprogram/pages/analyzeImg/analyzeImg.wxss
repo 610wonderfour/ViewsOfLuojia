@@ -144,7 +144,7 @@
   font-size: 27rpx;
   font-weight: 530;
   color: rgb(41, 146, 41);
-  margin-bottom: 20rpx;
+  margin-top: 30rpx;
 }
 
 #slide-title{

@@ -33,9 +33,14 @@ Page({
     wx.setStorageSync('logged', true)
     console.log(app.globalData)
 
-    wx.redirectTo({
-      url: '../index/index',
+    wx.showToast({
+      title: '授权成功',
+      icon: 'success',
+      success: wx.redirectTo({
+        url: '../index/index',
+      })
     })
+    
 
   },
 

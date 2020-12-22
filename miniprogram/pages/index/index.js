@@ -111,7 +111,7 @@ Page({
         fail: res => reject(res)
      })
     }).then(res => {
-      console.log(res);
+      // console.log(res);
       wx.showLoading({
         title: '小图努力中...'
       });
@@ -308,8 +308,6 @@ Page({
       return
     }
 
-    console.log(wx.getStorageSync('openid'));
-
     // 激活定位控件
     wx.getLocation({
       type: 'gcj02',
@@ -326,6 +324,8 @@ Page({
     });
 
     this.initCollectionRecord();
+    if(wx.getStorageSync('openid') !== '')
+    console.log('openid:', wx.getStorageSync('openid'));
 
   },
 
@@ -340,6 +340,7 @@ Page({
 
   moveTolocation: function() {
     this.mapCtx = wx.createMapContext('map')
+    console.log(this.mapCtx);
     this.mapCtx.moveToLocation()
   },
 
