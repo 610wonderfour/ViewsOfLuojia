@@ -1,1 +1,12 @@
 /* pages/selfCenter/settings/settings.wxss */
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button{
+  background-color:rgb(218, 82, 82);
+  color:white;
+}

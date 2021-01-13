@@ -1,0 +1,70 @@
+/* pages/selfCenter/quiz/quiz.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.list {
+  /* margin-top: 30rpx; */
+  height: auto;
+  width: 100%;
+  background: #fff;
+  padding: 0 40rpx;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: none;
+  border-right: none;
+  /* border-bottom: none; */
+  transition: all 300ms ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.list-item {
+  width: 100%;
+  padding: 0;
+  /* line-height: 104rpx; */
+  font-size: 34rpx;
+  color: #007aff;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.list-item:first-child {
+  border-top: none;
+}
+
+.step{
+  height: 40rpx;
+  width: 40rpx;
+  margin: 8rpx 20rpx;
+  border-radius: 50%;
+}
+
+.choice{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.choice-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  width: 40%;
+  height: 70rpx;
+  background-color: rgb(236, 236, 236);
+  margin: 20rpx 20rpx 20rpx 0;
+  padding: 10rpx 5rpx;
+}

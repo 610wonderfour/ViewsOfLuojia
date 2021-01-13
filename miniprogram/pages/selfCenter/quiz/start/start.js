@@ -1,38 +1,40 @@
-// pages/selfCenter/settings/settings.js
-const app = getApp()
-
-
-
+// pages/selfCenter/quiz/start/start.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    scoreRec: '',
+
 
   },
 
+  init(){
+    this.setData({
+      scoreRec: wx.getStorageSync('totalScore'),
 
-  logout(){
-    wx.showModal({
-      title: '确认要登出吗?',
-      success: () => {
-        wx.clearStorage({
-          success: (res) => {
-            wx.navigateTo({
-              url: '../../index/index',
-            })
-          },
-        })
-      }
     })
-    
+  },
+
+  getResult(){
+    wx.navigateTo({
+      url: '../result/result',
+    })
+  },
+
+
+  startQuiz(){
+    wx.navigateTo({
+      url: '../quiz',
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.init();
 
   },
 

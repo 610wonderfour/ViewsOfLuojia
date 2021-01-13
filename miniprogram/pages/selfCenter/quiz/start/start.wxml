@@ -1,0 +1,16 @@
+<!--pages/selfCenter/quiz/start/start.wxml-->
+<view class="container">
+  <view style="margin:20rpx 0;">
+    <view wx:if="{{scoreRec === ''}}">您还没有答题记录！</view>
+    <view style="display:flex;justify-content:center;width:100%;">
+      <view 
+      wx:if="{{scoreRec !== ''}}" style="margin-right: 20rpx;"
+      >您上一次的答题分数为:<text style="font-size:40rpx;color:red;">{{scoreRec}}</text>/100</view>
+      <view style="color:blue;text-decoration-line:underline;padding-top: 11rpx;" bindtap="getResult" wx:if="{{scoreRec !== ''}}">查看详情</view>
+    </view>
+    
+  </view>
+  <view style="margin:20rpx 0;">
+    <button bindtap="startQuiz" type="primary">进入答题</button>
+  </view>
+</view>

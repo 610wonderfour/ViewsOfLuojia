@@ -1,4 +1,4 @@
-// pages/selfCenter/settings/settings.js
+// pages/selfCenter/areaSeparate/areaSeparate.js
 const app = getApp()
 
 
@@ -9,24 +9,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    areaSeparateImg: app.globalData.imgUrl + 'example/areaSeparate.jpg',
+
 
   },
 
-
-  logout(){
-    wx.showModal({
-      title: '确认要登出吗?',
-      success: () => {
-        wx.clearStorage({
-          success: (res) => {
-            wx.navigateTo({
-              url: '../../index/index',
-            })
-          },
-        })
-      }
+  clickImg(e){
+    wx.previewImage({
+      urls: [this.data.areaSeparateImg],
     })
-    
   },
 
   /**
@@ -47,6 +38,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
 
   },
 

@@ -1,6 +1,6 @@
 /* pages/selfCenter/selfCenter.wxss */
 #container{
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
   background-color: #ffc8c4;
   display: flex;
@@ -19,12 +19,14 @@ image{
 }
 .menu-item{
   height: 55px;
-  width: 90%;
+  width: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 0 19px;
+
 }
 .menu-item image{
+  margin-left: 35rpx;
 
 }
 .menu-item view{

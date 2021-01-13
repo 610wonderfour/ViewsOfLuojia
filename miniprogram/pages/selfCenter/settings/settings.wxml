@@ -1,2 +1,11 @@
 <!--pages/selfCenter/settings/settings.wxml-->
-<text>pages/selfCenter/settings/settings.wxml</text>
+<view class="container">
+
+  <button bindtap="logout" style="margin-top:60rpx;">退出登录</button>
+
+  <view style="position:absolute;bottom:70rpx;">
+    版本1.0.0
+  </view>
+
+
+</view>

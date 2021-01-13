@@ -1,0 +1,15 @@
+<!--pages/selfCenter/quiz/result/result.wxml-->
+<view class="container">
+  <view>
+
+    <view style="margin: 30rpx;">您的总得分为：<text style="font-size:40rpx;color:red;">{{totalScore}}</text>/100</view>
+    <view wx:for="{{scoreList}}" wx:key="index" style="margin:16rpx;">
+      您第{{index + 1}}题的选择为:<text style="color:blue;" decode="{{true}}">&nbsp;{{item.choice}}&nbsp;</text>,得分为<text style="color:red;" decode="{{true}}">&nbsp;{{item.score}}</text>
+    </view>
+
+  </view>
+  <view style="margin:40rpx;">
+    <button type="primary" bindtap="reQuiz" style="margin:20rpx;">重新答题</button>
+    <button type="warn" bindtap="returnSelfCenter">返回个人中心</button>
+  </view>
+</view>

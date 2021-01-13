@@ -8,7 +8,11 @@
     "pages/selfCenter/history/history",
     "pages/selfCenter/chatroom/chatroom",
     "pages/selfCenter/aboutUs/aboutUs",
+    "pages/selfCenter/areaSeparate/areaSeparate",
     "pages/selfCenter/settings/settings",
+    "pages/selfCenter/quiz/quiz",
+    "pages/selfCenter/quiz/result/result",
+    "pages/selfCenter/quiz/start/start",
     
 
     "pages/chooseLib/chooseLib"

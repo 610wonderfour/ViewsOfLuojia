@@ -1,0 +1,5 @@
+<!--pages/selfCenter/areaSeparate/areaSeparate.wxml-->
+<view class="container" style="height:100vh;width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+  <image style="width:100%" src="{{areaSeparateImg}}" mode="aspectFit" bindtap="clickImg"></image>
+  <view style="margin-top:30rpx;">点击放大查看</view>
+</view>

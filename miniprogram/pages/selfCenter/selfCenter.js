@@ -13,6 +13,8 @@ Page({
     feedbackBgColor: 'white',
     chatroomBgColor: 'white',
     aboutUsBgColor: 'white',
+    areaBgColor: 'white',
+    quizBgColor: 'white',
     settingsBgColor: 'white'
   },
 
@@ -33,6 +35,12 @@ Page({
         break;
       case 'aboutUs':
         this.setData({aboutUsBgColor: '#dadada'});
+        break;
+      case 'area-separate':
+        this.setData({areaBgColor: '#dadada'});
+        break;
+      case 'quiz':
+        this.setData({quizBgColor: '#dadada'});
         break;
       case 'settings':
         this.setData({settingsBgColor: '#dadada'});
@@ -70,6 +78,18 @@ Page({
         this.setData({aboutUsBgColor: 'white'});
         wx.navigateTo({
           url: 'aboutUs/aboutUs',
+        })
+        break;
+      case 'area-separate':
+        this.setData({areaBgColor: 'white'});
+        wx.navigateTo({
+          url: 'areaSeparate/areaSeparate',
+        })
+        break;
+      case 'quiz':
+        this.setData({quizBgColor: 'white'});
+        wx.navigateTo({
+          url: 'quiz/start/start',
         })
         break;
       case 'settings':

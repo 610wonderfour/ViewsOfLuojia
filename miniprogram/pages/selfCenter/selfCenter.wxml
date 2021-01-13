@@ -85,6 +85,35 @@
     <view class="separateline"></view>
 
     <view 
+    id="area-separate"
+    class="menu-item" 
+    style="background-color:{{areaBgColor}};" 
+    bindtouchstart="touchStartFeedback"
+    bindtouchend="touchEndFeedback"
+    >
+      <image src="../../icons/area.png"></image>
+      <view>校内区域划分规则</view>
+      <image src="../../icons/arrow.png" class="arrow-icon"></image>
+    </view>
+
+    <view class="separateline"></view>
+
+    <view 
+    id="quiz"
+    class="menu-item" 
+    style="background-color:{{quizBgColor}};" 
+    bindtouchstart="touchStartFeedback"
+    bindtouchend="touchEndFeedback"
+    >
+      <image src="../../icons/quiz.png"></image>
+      <view>小图问答</view>
+      <image src="../../icons/arrow.png" class="arrow-icon"></image>
+    </view>
+
+    <view class="separateline"></view>
+
+
+    <view 
     id="settings"
     class="menu-item" 
     style="background-color:{{settingsBgColor}};border-bottom-left-radius:10px;border-bottom-right-radius:10px;" 
@@ -98,6 +127,6 @@
 
   </view>
 
-  <view style="position:absolute;bottom:10%;">©Copyright2020 610车间荣誉出品</view>
+  <view style="margin:40px 0;">©Copyright2020 610车间荣誉出品</view>
 
 </view>

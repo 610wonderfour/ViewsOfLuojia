@@ -147,14 +147,14 @@
   margin-top: 30rpx;
 }
 
-#slide-title{
-  width: 50%;
+.myTitle{
   height: 80rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 50rpx;
-  background-color: #ffe46a;
+  padding: 0 20rpx;
+  
   
 }
 

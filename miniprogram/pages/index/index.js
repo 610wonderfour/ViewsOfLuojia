@@ -340,7 +340,7 @@ Page({
 
   moveTolocation: function() {
     this.mapCtx = wx.createMapContext('map')
-    console.log(this.mapCtx);
+    // console.log(this.mapCtx);
     this.mapCtx.moveToLocation()
   },
 

@@ -1,2 +1,14 @@
 <!--pages/collections/collections.wxml-->
-<text>pages/collections/collections.wxml</text>
+<view class="container">
+
+  <view class="collection-card" wx:for="{{collectionsArr}}" wx:key="index">
+    <image src="{{item.img}}" mode="aspectFit" style="height:150rpx;width:150rpx;"></image>
+    <view>
+      <view style="font-size:40rpx;font-weight:600;">{{item.loc}}</view>
+      <view>{{item.des1}}</view>
+      <view>{{item.des2}}</view>
+    </view>
+    
+  </view>
+
+</view>

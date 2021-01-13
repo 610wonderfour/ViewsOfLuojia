@@ -1,0 +1,5 @@
+/* pages/selfCenter/quiz/start/start.wxss */
+.container{
+  justify-content: center;
+  height: 100vh;
+}

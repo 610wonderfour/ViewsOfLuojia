@@ -1,0 +1,69 @@
+<!--pages/selfCenter/quiz/quiz.wxml-->
+<view class="container">
+
+<!-- 导航 -->
+<view class="list">
+  
+  <view class="list-item">
+    <view style="color:#ffc8c4;font-size:36rpx;margin: 10rpx 0;">小图问答</view>
+  </view>
+  
+  <progress percent="{{step*5 + 5}}" stroke-width="3" color="#ffc8c4" style="margin: 20rpx 0;"/>
+
+  <view class="list-item" style="margin:10rpx 0 20rpx;">
+    <view 
+    class="step" wx:for="{{20}}" wx:key="index" 
+    style="color: {{step === index ? 'white': '#ffc8c4'}};background-color: {{step === index ? '#ffc8c4': 'white'}}">
+      <view 
+      style="display:flex;align-items:center;justify-content:center;"
+      bindtap=""
+      >{{index + 1}}</view>
+    </view>
+
+  </view>
+
+</view>
+
+<view 
+wx:for="{{qArr}}" wx:for-index="qArrIndex" wx:for-item="qArrItem" wx:key="qArrIndex" wx:if="{{step === qArrIndex}}" 
+style="display:flex;flex-direction:column;align-items:center;" 
+>
+  <image src="{{qArrItem.imgUrl}}" style="margin:20rpx;"></image>
+  <view>
+    <view style="padding-left:46rpx;">{{qArrIndex + 1}}.图中场景所在区域是：</view>
+    <view class="choice">
+
+      <view 
+      wx:for="{{qArrItem.qContent}}" wx:key="choice" wx:for-index="qContentIndex" 
+      wx:for-item="qContentItem" class="choice-item" bindtap="select"
+      data-choice="{{qContentItem.choice}}" data-index="{{qArrIndex}}"
+      >
+        <view style="color:#ffc8c4;" 
+        bindtap="select" data-choice="{{qContentItem.choice}}" data-index="{{qArrIndex}}"
+        >{{qContentItem.choice}}.<text decode="{{true}}">&nbsp;</text></view>
+
+        <view bindtap="select"
+        data-choice="{{qContentItem.choice}}" data-index="{{qArrIndex}}"
+        >{{qContentItem.content}}</view>
+
+      </view>
+
+    </view>
+    <view 
+    wx:if="{{answerSheet[qArrIndex] !== ''}}" style="padding-left:46rpx;"
+    >您的选择是:{{answerSheet[qArrIndex]}}</view>
+    
+  </view>
+
+</view>
+<button bindtap="preStep" type="default" wx:if="{{step!==0}}" style="margin:20rpx 0 10rpx;">上一题</button>
+<button bindtap="nextStep" type="default" wx:if="{{step!==qArr.length-1}}" style="margin:10rpx 0 30rpx;">下一题</button>
+<button bindtap="submit" type="warn" wx:if="{{step===qArr.length-1}}" style="margin:10rpx 0 30rpx;">提交</button>
+
+<view>
+  <view></view>
+</view>
+
+
+
+</view>

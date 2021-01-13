@@ -21,7 +21,27 @@ Page({
     collected: Boolean, //当前区域是否被收藏
     picArray: Array, //当前区域轮播图资源
     briefName: String,
-    windowWidth: Number
+    windowWidth: Number,
+    videoSrc: '',
+    videoArr: [
+      'http://119.29.24.77/sources/luojiabaijingtu/WHU_winter.mp4',
+      'http://119.29.24.77/sources/luojiabaijingtu/WHU_spring.mp4',
+      'http://119.29.24.77/sources/luojiabaijingtu/WHU_autumn.mp4',
+      'http://119.29.24.77/sources/luojiabaijingtu/Graduation_MV.mp4',
+
+    ],
+    videoDes: '',
+    videoDesArr: [
+      '武汉大学·冬',
+      '武汉大学·春',
+      '武汉大学·秋',
+      '武汉大学2020届毕业MV',
+    ],
+    colorSrc: '',
+    colorArr: [
+      '#3a8ee6',
+      
+    ]
 
     
 
@@ -191,6 +211,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let randomIdx = Math.floor(Math.random()*this.data.videoArr.length);
     this.setData({
       targetImgPath: wx.getStorageSync('targetImgPath'),
       //调试阶段用，后续须改成exampleImgPath
@@ -200,6 +221,11 @@ Page({
       picArray: app.picArray,
       briefName: util.getBriefName(wx.getStorageSync('analyzeRes')),
       windowWidth: app.globalData.windowWidth,
+      videoSrc: this.data.videoArr[randomIdx],
+      videoDes: this.data.videoDesArr[randomIdx],
+      
+      
+
 
     })
 

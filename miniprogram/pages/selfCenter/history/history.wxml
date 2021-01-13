@@ -1,2 +1,11 @@
 <!--pages/selfCenter/history/history.wxml-->
+<view class="container">
 
+  <view class="content">
+    <view class="history-item" wx:for="historyArr">
+
+    </view>
+
+  </view>
+
+</view>
