@@ -2,11 +2,11 @@
 <view class="container">
 
   <view class="collection-card" wx:for="{{collectionsArr}}" wx:key="index">
-    <image src="{{item.img}}" mode="aspectFit" style="height:150rpx;width:150rpx;"></image>
+    <image src="{{item.img}}" mode="aspectFit" style="height:150rpx;width:150rpx;margin:0 20rpx;"></image>
     <view>
-      <view style="font-size:40rpx;font-weight:600;">{{item.loc}}</view>
-      <view>{{item.des1}}</view>
-      <view>{{item.des2}}</view>
+      <view style="font-size:40rpx;font-weight:600;color:#ffc832;margin:10rpx 0;">{{item.loc}}</view>
+      <view style="color:#a0a0a0;">{{item.des1}}</view>
+      <view style="color:#a0a0a0;">{{item.des2}}</view>
     </view>
     
   </view>

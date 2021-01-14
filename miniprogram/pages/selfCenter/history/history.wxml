@@ -2,8 +2,13 @@
 <view class="container">
 
   <view class="content">
-    <view class="history-item" wx:for="historyArr">
-
+    <view class="history-item" wx:for="{{historyArr}}" wx:key="index">
+      <view style="display:flex;">
+        <view style="margin:20rpx;">
+          <text decode="{{true}}">{{item.predict}}&emsp;\t{{item.time}}</text>
+        </view>
+      </view>
+      <view class="separateline"></view>
     </view>
 
   </view>

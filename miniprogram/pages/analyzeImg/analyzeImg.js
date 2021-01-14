@@ -24,10 +24,18 @@ Page({
     windowWidth: Number,
     videoSrc: '',
     videoArr: [
-      'http://119.29.24.77/sources/luojiabaijingtu/WHU_winter.mp4',
-      'http://119.29.24.77/sources/luojiabaijingtu/WHU_spring.mp4',
-      'http://119.29.24.77/sources/luojiabaijingtu/WHU_autumn.mp4',
-      'http://119.29.24.77/sources/luojiabaijingtu/Graduation_MV.mp4',
+      'http://119.29.24.77/sources/luojiabaijingtu/video/WHU_winter.mp4',
+      'http://119.29.24.77/sources/luojiabaijingtu/video/WHU_spring.mp4',
+      'http://119.29.24.77/sources/luojiabaijingtu/video/WHU_autumn.mp4',
+      'http://119.29.24.77/sources/luojiabaijingtu/video/Graduation_MV.mp4',
+
+    ],
+    posterSrc: '',
+    posterArr: [
+      'http://119.29.24.77/sources/luojiabaijingtu/video/WHU_winter.jpg',
+      'http://119.29.24.77/sources/luojiabaijingtu/video/WHU_spring.jpg',
+      'http://119.29.24.77/sources/luojiabaijingtu/video/WHU_autumn.jpg',
+      'http://119.29.24.77/sources/luojiabaijingtu/video/Graduation_MV.jpg',
 
     ],
     videoDes: '',
@@ -39,9 +47,21 @@ Page({
     ],
     colorSrc: '',
     colorArr: [
-      '#3a8ee6',
-      
-    ]
+      '#3b65ff',
+      '#ffc8c4',
+      '#fea90d',
+      '#ff680f',
+    ],
+    drawingSrc: '',
+    drawingArr: [
+      'http://119.29.24.77/sources/luojiabaijingtu/image/drawings/凌波栈桥.jpg',
+      'http://119.29.24.77/sources/luojiabaijingtu/image/drawings/宋卿.jpg',
+      'http://119.29.24.77/sources/luojiabaijingtu/image/drawings/老斋舍.jpg',
+
+    ],
+    
+
+
 
     
 
@@ -207,11 +227,24 @@ Page({
 
   },
 
+  previewPhoto(){
+    wx.previewImage({
+      urls: this.data.picArray,
+    })
+  },
+
+  previewDrawing(){
+    wx.previewImage({
+      urls: [this.data.drawingSrc],
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let randomIdx = Math.floor(Math.random()*this.data.videoArr.length);
+    let videoRandomIdx = Math.floor(Math.random()*this.data.videoArr.length);
+    let drawingRandomIdx = Math.floor(Math.random()*this.data.drawingArr.length);
     this.setData({
       targetImgPath: wx.getStorageSync('targetImgPath'),
       //调试阶段用，后续须改成exampleImgPath
@@ -221,10 +254,11 @@ Page({
       picArray: app.picArray,
       briefName: util.getBriefName(wx.getStorageSync('analyzeRes')),
       windowWidth: app.globalData.windowWidth,
-      videoSrc: this.data.videoArr[randomIdx],
-      videoDes: this.data.videoDesArr[randomIdx],
-      
-      
+      videoSrc: this.data.videoArr[videoRandomIdx],
+      posterSrc: this.data.posterArr[videoRandomIdx],
+      videoDes: this.data.videoDesArr[videoRandomIdx],
+      colorSrc: this.data.colorArr[videoRandomIdx],
+      drawingSrc: this.data.drawingArr[drawingRandomIdx],
 
 
     })

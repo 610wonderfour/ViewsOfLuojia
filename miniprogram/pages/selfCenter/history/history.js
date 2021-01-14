@@ -1,4 +1,8 @@
 // pages/selfCenter/history/history.js
+const app = getApp()
+const th = require('../../../utils/th')
+
+
 Page({
 
   /**
@@ -10,11 +14,47 @@ Page({
 
   },
 
+  getHistory(){
+    new Promise((resolve, reject) => {
+      wx.request({
+        url: app.globalData.url + 'History/',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+        },
+        data: {
+          openId: wx.getStorageSync('openid'),
+        },
+        success: res => resolve(res),
+        fail: err => reject(err)
+      })
+    }).then(res => {
+      console.log('识图记录:', res);
+      let temp = [];
+      for(let i=res.data.length-1;i>=0;i--){
+        temp.push({
+          time: res.data[i].time,
+          predict: th.typeHashBack(res.data[i].predict + 1),
+        })
+        if(temp.length >= 10){
+          break;
+        }
+        
+      }
+      console.log(temp);
+      this.setData({
+        historyArr: temp,
+      })
+
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getHistory();
   },
 
   /**

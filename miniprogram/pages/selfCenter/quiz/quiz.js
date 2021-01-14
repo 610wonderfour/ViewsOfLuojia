@@ -132,18 +132,25 @@ Page({
         let qArr = this.data.qArr;
         let scoreList = [];
         for(let asIndex=0;asIndex<as.length;asIndex++){
+          let eachScore = 0;
           // console.log(as[asIndex]);
 
           let c = qArr[asIndex].qContent;
           //遍历四个选项，查看对应分值
           for(let cIndex=0;cIndex<c.length;cIndex++){
             if(as[asIndex] === c[cIndex].choice){
-              score += Number(c[cIndex].score);
-              scoreList.push({
-                choice: as[asIndex],
-                score: Number(c[cIndex].score)
-              });
+              eachScore = Number(c[cIndex].score)
             }
+            
+          }
+          
+          score += eachScore;
+          if(eachScore !== 0){
+
+            scoreList.push({
+              choice: as[asIndex],
+              score: eachScore,
+            });
           }
 
           /*
@@ -159,10 +166,10 @@ Page({
             ...
           ]
           */
-          wx.setStorageSync('scoreList', scoreList); //将'批改'后的答题卡保存，便于后续输出
-          wx.setStorageSync('totalScore', score); //保存总分
-
+         
         }
+        wx.setStorageSync('scoreList', scoreList); //将'批改'后的答题卡保存，便于后续输出
+        wx.setStorageSync('totalScore', score); //保存总分
 
         console.log(score);
 

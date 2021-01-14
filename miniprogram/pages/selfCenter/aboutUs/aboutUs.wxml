@@ -4,33 +4,93 @@
   <view id="background">
     <view id="des">
       <view id="title">610</view>
-      <view id="title-des">--四个有趣灵魂擦出的火花</view>
+      <view id="title-des">🙌四个有趣灵魂擦出的火花</view>
     </view>
 
   </view>
   <image id="wonder4" src="../../../images/610wonderfour.jpg"></image>
 
-  <view style="width:60%;margin-top:50rpx;">
-    "珞珈百景图是课程大作业的衍生产物，是第一个产出自610车间的产品。"
+  <view style="display:flex;align-items:center;justify-content:center;">
+    <view>👉</view>
+    <view style="width:60%;margin:50rpx 20rpx;padding:20rpx;background-color:#ffc832;">
+      "珞珈百景图是课程大作业的衍生产物，是第一个产出自610车间的产品。"
+    </view>
+    <view>👈</view>
   </view>
-  <view>
+
+
+  <view style="display:flex;flex-wrap:wrap;justify-content:center;">
+    
+    <view class="member-card">
+      <image src="../../../images/xin.jpg" class="member-icon"></image>
+      <view class="member-des">
+        <view class="member-name">辛嘉宇</view>
+        <view class="member-work">前端</view>
+      </view>
+    </view>
+
+    <view class="member-card">
+      <image src="../../../images/xu.jpg" class="member-icon"></image>
+      <view class="member-des">
+        <view class="member-name">徐家乐</view>
+        <view class="member-work">后端</view>
+      </view>
+      
+    </view>
+
+    <view class="member-card">
+      <image src="../../../images/han.jpg" class="member-icon"></image>
+      <view class="member-des">
+        <view class="member-name">韩海川</view>
+        <view class="member-work">UI</view>
+      </view>
+      
+    </view>
+
+    <view class="member-card">
+      <image src="../../../images/wang.jpg" class="member-icon"></image>
+      <view class="member-des">
+        <view class="member-name">汪涛</view>
+        <view class="member-work">产品</view>
+      </view>
+      
+    </view>
+
+    <view class="member-card">
+      <image src="../../../images/deng.jpg" class="member-icon"></image>
+      <view class="member-des">
+        <view class="member-name">邓雅嘉</view>
+        <view class="member-work">美工</view>
+      </view>
+      
+    </view>
+
+
+  </view>
+
+  <!-- <view>
     川：在开始做这个项目的时候，根本没想到会做出这么漂亮的成品，我自己都没想到我做的ui图能实现成现在这个漂亮的界面，这一切都归功于大家的共同努力，610NB！！！
-  </view>
+  </view> -->
   
-  <view>
-    特别鸣谢： 所有帮助过这个项目的老师与同学
+  <view style="text-decoration-line:underline;margin:50rpx;">
+    <view>
+    特别鸣谢👏:所有帮助过这个项目的老师与同学
+    </view>
+
+    <view>
+      图片来源:武大官微，自强摄影，珞珈山摄影师阿正，b站up主夏日小明等
+    </view>
+    <view>
+      <image src="../../../images/li.jpg" class="supporter-icon"></image>
+      <image src="../../../images/xia.jpg" class="supporter-icon"></image>
+      <image src="../../../images/WHU.jpg" class="supporter-icon"></image>
+      <image src="../../../images/ziqiangPhoto.jpg" class="supporter-icon"></image>
+    </view>
   </view>
 
-  <view>
-    图片来源： 武大官微，自强摄影，珞珈山摄影师阿正，b站up主夏日小明等
+  
+  <view style="margin:50rpx;">
+    
   </view>
-  <view>
 
-  </view>
-  <view>
-    
-  </view>
-  <view>
-    
-  </view>
 </view>

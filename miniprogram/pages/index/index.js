@@ -23,6 +23,18 @@ Page({
     } else return true;
   },
 
+  showGuidance(){
+    if(!wx.getStorageSync('logged')){
+      wx.showModal({
+        title: '小图使用指南',
+        content: '珞珈百景图是一款面向武大学生、老师及游客开发的一款小程序，核心功能为识图：根据已有图片定位到武大校内的某个区域。版本V1.0.0仅支持7种区域划分规则，详情见个人中心->校内区域划分规则。小图不仅能识图，还有各种武大学生的软文化输出噢。',
+        showCancel: false,
+        confirmText: '知道了',
+
+      })
+    }
+  },
+
   enterCollections: function(){
     this.setData({
       collectionsIcon: '../../icons/collections_focus.png'
@@ -307,6 +319,8 @@ Page({
       })
       return
     }
+
+    this.showGuidance();
 
     // 激活定位控件
     wx.getLocation({

@@ -14,7 +14,7 @@ image{
   width: 20px;
 }
 .separateline{
-  border: 0.4px solid rgb(236, 236, 236);
+  border: 0.9px solid rgb(236, 236, 236);
   width: 90%;
 }
 .menu-item{

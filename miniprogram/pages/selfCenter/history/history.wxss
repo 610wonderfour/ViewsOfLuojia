@@ -1,0 +1,21 @@
+.container{
+
+}
+
+.separateline{
+  border: 0.9px solid rgb(236, 236, 236);
+  width: 100%;
+}
+
+.history-item{
+
+  
+}
+
+.history-item:first-child{
+  border-top: none;
+}
+
+.history-item:last-child{
+  border-bottom: none;
+}
