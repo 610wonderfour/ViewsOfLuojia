@@ -83,7 +83,7 @@ UI文档：https://shimo.im/docs/YxkXkTrY6xXYgQ8C/
 
 ##### 功能范围
 
-![思维导图](https://i.loli.net/2020/11/16/gSubfjCL4QhBaKW.png)
+![珞珈百景图前端整体架构](https://github.com/610wonderfour/ViewsOfLuojia/blob/master/珞珈百景图前端整体架构.png)
 
 
 
